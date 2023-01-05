@@ -31,6 +31,16 @@
 }
 
 
+.fontsize{
+    padding: 60px 60px 20px 0px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    z-index: 500;
+    color: #ffffff;
+    font-size: 14px;
+    display:none;font-size:1.15rem;line-height:1.5rem;
+}
 
 
 
