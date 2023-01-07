@@ -35,10 +35,10 @@
 
 <body>
 
-    <audio id="audioDom" src="http://dl.stream.qqmusic.qq.com/C4000020BvBA4BKw7H.m4a?guid=1801541260&vkey=AF04E94353BA7B8D4791E609D418911F1D2B09F0D49B7402EF2AF1AA1660FC463018FD9615BB23B58EBBA02565D664CBB8CC8BFBD988A381&uin=&fromtag=120032" preload="auto" loop="loop"></audio>
+    <audio id="audioDom" src="http://dl.stream.qqmusic.qq.com/C4000020BvBA4BKw7H.m4a?guid=3561379838&vkey=F503F77B3E1B264A437BDECDBD0028F012356FD285415E3F99AEBE6023A79A1EBBAA74E7D02B5E9F77C5AC65A81C40B83C47017FDCB647F2&uin=&fromtag=120032" preload="auto" loop="loop"></audio>
 
     <div id="yhBtn" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px    ">
-        <p>💥点击我(如果点击没反应请等几秒再点)💥</p>
+        <p>💥点点我吖💥</p>
         <img style="width:64px;margin-bottom:36px " src="files/boom.png">
     </div>
 
@@ -175,14 +175,14 @@
             setTimeout(() => {
                 start()
                 fireworks();
-            }, 1600) // 
+            }, 1000) // 
             setTimeout(() => {
                 function audioAutoPlay() {
                     var audio = document.getElementById('audioDom');
                     audio.play();
                 }
                 audioAutoPlay();
-            }, 800) // 
+            }, 100) // 
             console.log(updateConfig({
                 autoLaunch: true
             }));
@@ -262,7 +262,6 @@
 time()
 </script>
 倒计时
-<!--tip:此网页引用其他脚本,非全部原创-->
 </body>
 
 </html>
