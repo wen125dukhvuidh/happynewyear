@@ -29,13 +29,28 @@
                 console.log(shouci);
             }
         };
+        window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
     </script>
 </head>
 <!-- onclick="bodyPlayMusic()" -->
 
-<body>
-
-    <audio id="audioDom" src="http://dl.stream.qqmusic.qq.com/C4000020BvBA4BKw7H.m4a?guid=3561379838&vkey=F503F77B3E1B264A437BDECDBD0028F012356FD285415E3F99AEBE6023A79A1EBBAA74E7D02B5E9F77C5AC65A81C40B83C47017FDCB647F2&uin=&fromtag=120032" preload="auto" loop="loop"></audio>
+<body oncontextmenu='return false' >
+    <audio id="audioDom" src="http://dl.stream.qqmusic.qq.com/C4000020BvBA4BKw7H.m4a?guid=5947783945&vkey=A7E5A8A6F0E2DA25494F2C9C56B6DDC78A5FEA01E02B07DCEB717B9247B97F424884FDB7C697FEA839A6687E78CA7D72E1D6170A84BA7EE4&uin=&fromtag=64" preload="auto" loop="loop"></audio>
 
     <div id="yhBtn" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px    ">
         <p>💥点点我吖💥</p>
@@ -154,6 +169,7 @@
     <script src="files/js/script.js"></script>
 
     <script>
+        
         function musicPlay(isPlay) {
             var media = document.querySelector('#audioDom');
             if (isPlay && media.paused) {
@@ -261,6 +277,7 @@
 }
 time()
 </script>
+
 倒计时
 </body>
 
