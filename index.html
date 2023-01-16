@@ -205,6 +205,7 @@ var check = setInterval(function() {
             setTimeout(() => {
                 function audioAutoPlay() {
                     var audio = document.getElementById('audioDom');
+                    audio.volume=0.15;
                     audio.play();
                 }
                 audioAutoPlay();
