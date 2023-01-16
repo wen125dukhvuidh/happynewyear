@@ -50,10 +50,17 @@ var check = setInterval(function() {
 <!-- onclick="bodyPlayMusic()" -->
 
 <body oncontextmenu='return false' >
-    <audio id="audioDom" src="http://dl.stream.qqmusic.qq.com/C4000020BvBA4BKw7H.m4a?guid=5947783945&vkey=A7E5A8A6F0E2DA25494F2C9C56B6DDC78A5FEA01E02B07DCEB717B9247B97F424884FDB7C697FEA839A6687E78CA7D72E1D6170A84BA7EE4&uin=&fromtag=64" preload="auto" loop="loop"></audio>
+    <audio id="audioDom" src="http://dl.stream.qqmusic.qq.com/C4000020BvBA4BKw7H.m4a?guid=4199096875&vkey=4B4B82417011FFAAD20B5E1D203324DE18AAD9B1524FEAE454D17F1A4530C92523935D7EC6D6B096E02AD70620C5F7A1F7C6B47D8134B61B&uin=&fromtag=64" preload="auto" volume="0.1" loop="loop"></audio>
+    <audio id="audioPeng" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/burst1.mp3" preload="auto"></audio>
 
-    <div id="yhBtn" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px    ">
-        <p>💥点点我吖💥</p>
+    <div id="textBtn" style="position:fixed;top: -110px;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px ;display: none;   ">
+    <p>嗨，等你好久了吖</p>
+    <br>
+    <p>💥点我引爆哦💥</p>
+    </div>
+    <div id="content1" style="position:fixed;top: -110px;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ;font-weight:600; font-size:1.35rem; ">
+    </div>
+    <div id="yhBtn" style="position:fixed;top:10px;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px    ">
         <img style="width:64px;margin-bottom:36px " src="files/boom.png">
     </div>
 
@@ -187,7 +194,10 @@ var check = setInterval(function() {
         }
         document.body.addEventListener('touchstart', musicInBrowserHandler);
         $('#yhBtn').click(e => {
+            var audio1 = document.getElementById('audioPeng');
+            audio1.play();
             $('#yhBtn').hide()
+            $('#content1').hide()
             setTimeout(() => {
                 start()
                 fireworks();
@@ -208,6 +218,7 @@ var check = setInterval(function() {
             $('.page_one').addClass('hide');
             $('.page_two').removeClass('hide');
         }
+        
 
         function start() {
             let str = $("#text").html(); //"于我而言，你是最好且是唯一"
@@ -229,6 +240,24 @@ var check = setInterval(function() {
         }
     </script>
 
+<script>
+    function dayin(){
+            let str = $("#textBtn").html(); //"于我而言，你是最好且是唯一"
+            let str_ = ''
+            let i = 0
+            let content = document.getElementById('content1')
+            let timer = setInterval(() => {
+                if (str_.length < str.length) {
+                    str_ += str[i++]            
+                    content.innerHTML = '<p>' + str_  //打印时加光标
+                } else {
+                    clearInterval(timer)
+                    // content.innerHTML = '<p>' + str_ + '</p>'                   
+                }
+            }, 100)
+        }
+        dayin()
+</script>
     <!-- <script>
         var _hmt = _hmt || [];
         (function() {
